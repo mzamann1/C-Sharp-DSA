@@ -43,8 +43,8 @@ public class CustomCircularQueue<T>
         }
         else
         {
-            if(front<=rear) return rear + 1 - front; //normal case
-            else return rear+front+1; //circular case
+            if (front <= rear) return rear + 1 - front; //normal case
+            else return (_capacity-front)+(rear+1); //circular case
         }
     }
 
@@ -96,10 +96,39 @@ public class CustomCircularQueue<T>
         }
 
         Console.WriteLine("\n============= Printing Queue Started ==============\n");
-        for (int i = front; i <= rear; i++)
+
+        if (rear >= front)
         {
-            Console.Write(arr[i] + " ");
+
+            // Loop to print elements from
+            // front to rear.
+            for (int i = front; i <= rear; i++)
+            {
+                Console.Write(arr[i]);
+                Console.Write(" ");
+            }
+            Console.Write("\n");
         }
+         // If rear crossed the max index and
+        // indexing has started in loop
+        else
+        {
+            for (int i = front; i < _capacity; i++)
+            {
+                Console.Write(arr[i]);
+                Console.Write(" ");
+            }
+
+            // Loop for printing elements from
+            // 0th index till rear position
+            for (int i = 0; i <= rear; i++)
+            {
+                Console.Write(arr[i]);
+                Console.Write(" ");
+            }
+        }
+
+
         Console.WriteLine("\n============= Printing Queue Ended ==============\n");
     }
 

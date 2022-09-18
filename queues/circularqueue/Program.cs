@@ -9,11 +9,10 @@ try
     st.Enqueue(33);
     st.DeQueue();
     st.Enqueue(43);
-    st.DeQueue();
-    st.DeQueue();
-    st.DeQueue();
+    st.Enqueue(44);
+
     Console.WriteLine(st.GetSize());
-    // st.Show();
+    st.Show();
     // st.DeQueue();
     // st.Show();
 
